@@ -37,6 +37,13 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+//Client Rest
+$routes->get('/clientsnatural', 'ClientsNaturalController::clientsList');
+$routes->get('/clientsjuridical', 'ClientsJuridicalController::clientsList');
+$routes->get('/products', 'ProductsController::productsList');
+$routes->post('/products/create', 'ProductsController::createNewProduct');
+$routes->get('/orders', 'OrdersController::ordersList');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
