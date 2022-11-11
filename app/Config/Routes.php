@@ -40,9 +40,14 @@ $routes->get('/', 'Home::index');
 //Client Rest
 $routes->get('/clientsnatural', 'ClientsNaturalController::clientsList');
 $routes->get('/clientsjuridical', 'ClientsJuridicalController::clientsList');
+$routes->get('/orders', 'OrdersController::ordersList');
+
+// Products Crud
 $routes->get('/products', 'ProductsController::productsList');
 $routes->post('/products/create', 'ProductsController::createNewProduct');
-$routes->get('/orders', 'OrdersController::ordersList');
+$routes->get('/products/edit/(:num)', 'ProductsController::editProduct/$1');
+$routes->put('/products/update/(:num)', 'ProductsController::updateProduct/$1');
+$routes->delete('/products/delete/(:num)','ProductsController::delete/$1');
 
 /*
  * --------------------------------------------------------------------

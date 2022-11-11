@@ -6,6 +6,7 @@ use App\Models\Products;
 use CodeIgniter\Model;
 use CodeIgniter\RESTful\ResourceController;
 use Exception;
+use function PHPUnit\Framework\throwException;
 
 class ProductsController extends ResourceController
 {
@@ -63,6 +64,71 @@ class ProductsController extends ResourceController
         $response = ['response' => 'Erro de Token','msg' => 'O Token Utilizado é inválido'];
 
         return $this->response->setJSON($response);
+    }
+
+    public function editProduct($id = null)
+    {
+        try {
+            if ($id == null) {
+                return $this->failValidationErrors('O ID é inválido');
+            }
+            $product = $this->product->find($id);
+
+            if ($product == null) {
+                return $this->failNotFound('Produto com o ID: ' . $id . ' Não Encontrado');
+            }
+
+            return $this->respond($product);
+
+        }catch (Exception $exception) {
+            return $this->failServerError('Erro no Servidor' . $exception->getMessage());
+        }
+    }
+
+    public function updateProduct($id = null)
+    {
+        try {
+            if ($id == null) {
+                return $this->failValidationErrors('O ID passado é inválido');
+            }
+            $productVerified = $this->product->find($id);
+
+            if ($productVerified == null) {
+                return $this->failNotFound('Produto com o ID: ' . $id . ' Não Encontrado');
+            }
+            $product = $this->request->getJSON();
+
+            if ($this->product->update($id,$product)) {
+                $product->id = $id;
+                return $this->respondUpdated($product);
+            }
+            return $this->failValidationErrors($this->product->validation->listErrors());
+        } catch (Exception $exception) {
+            return $this->failServerError('Ocorreu um problema no servidor ' . $exception->getMessage());
+        }
+    }
+
+    public function delete($id = null)
+    {
+        {
+            try {
+
+                if ($id == null)
+                    return $this->failValidationErrors('ID inválido');
+
+                $productVerified = $this->product->find($id);
+                if ($productVerified == null)
+                    return $this->failNotFound('Produto com o ID : ' . $id . ' não encontrado');
+
+                if ($this->product->delete($id)) :
+                    return $this->respondDeleted($productVerified);
+                else :
+                    return $this->failServerError('Erro ao Excluir Produto');
+                endif;
+            } catch (Exception $e) {
+                return $this->failServerError('Erro no Servidor' . $e->getMessage());
+            }
+        }
     }
 }
 

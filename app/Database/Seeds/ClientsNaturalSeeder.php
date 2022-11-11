@@ -26,6 +26,7 @@ class ClientsNaturalSeeder extends Seeder
                 [
                     'name'        =>    $faker->name,
                     'cpf'         =>    $faker->phoneNumber,
+                    'adress' => $faker->address
                 ]
             );
         }

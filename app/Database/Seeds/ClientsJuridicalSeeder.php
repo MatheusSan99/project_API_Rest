@@ -18,6 +18,7 @@ class ClientsJuridicalSeeder extends Seeder
                 [
                     'trade_name'        =>    $faker->name,
                     'cnpj'         =>    $faker->phoneNumber,
+                    'adress' => $faker->address
                 ]
             );
         }
