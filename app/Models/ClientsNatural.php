@@ -24,8 +24,13 @@ class ClientsNatural extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        'name' => 'required|alpha_numeric_space|min_length[1]',
+        'cpf' => 'required||is_unique[clients.natural.cnpj]'
+    ];
+    protected $validationMessages   = [
+        'name' => ['required' => 'O nome é necessário para criar um novo usuário'],
+        'cpf' => ['is_unique' => 'Este CPF já se encontra cadastrado']];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

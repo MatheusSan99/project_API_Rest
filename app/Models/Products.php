@@ -24,8 +24,10 @@ class Products extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        'name' => 'required|alpha_numeric_space|min_length[1]'];
+    protected $validationMessages   = [
+        'name' => ['required' => 'O nome é necessário para criar um novo produto']];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

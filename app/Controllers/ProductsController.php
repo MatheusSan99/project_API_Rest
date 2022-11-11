@@ -6,7 +6,6 @@ use App\Models\Products;
 use CodeIgniter\Model;
 use CodeIgniter\RESTful\ResourceController;
 use Exception;
-use function PHPUnit\Framework\throwException;
 
 class ProductsController extends ResourceController
 {

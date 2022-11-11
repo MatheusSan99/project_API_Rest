@@ -24,8 +24,13 @@ class ClientsJuridical extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        'name' => 'required|alpha_numeric_space|min_length[1]',
+        'cnpj' => 'required||is_unique[clients.juridical.cnpj]'
+    ];
+    protected $validationMessages   = [
+        'name' => ['required' => 'O nome é necessário para criar um novo usuário'],
+        'cnpj' => ['is_unique' => 'Este CNPJ já se encontra cadastrado']];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
