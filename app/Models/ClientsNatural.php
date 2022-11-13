@@ -26,11 +26,13 @@ class ClientsNatural extends Model
     // Validation
     protected $validationRules      = [
         'name' => 'required|alpha_numeric_space|min_length[1]',
-        'cpf' => 'required||is_unique[clients.natural.cnpj]'
+        'cpf' =>  'required|is_unique[clientsnatural.cpf]'
     ];
     protected $validationMessages   = [
         'name' => ['required' => 'O nome é necessário para criar um novo usuário'],
-        'cpf' => ['is_unique' => 'Este CPF já se encontra cadastrado']];
+        'cpf' => [
+            'is_unique' => 'Este CPF já se encontra cadastrado',
+            'required' => 'O CPF é necessário para continuar']];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

@@ -17,7 +17,7 @@ class ProductsController extends ResourceController
         $this->product = new Products();
     }
 
-    private function _tokenValidation()
+    private function _tokenValidation(): bool
     {
         return $this->request->getHeaderLine('token') == $this->token;
     }
@@ -31,6 +31,7 @@ class ProductsController extends ResourceController
     public function createNewProduct()
     {
         $response = [];
+        var_dump((array)$this->request->getHeaderLine('token') == $this->token);
 
         if ($this->_tokenValidation()) {
             $newProduct['name'] = $this->request->getPost('name');

@@ -25,12 +25,14 @@ class ClientsJuridical extends Model
 
     // Validation
     protected $validationRules      = [
-        'name' => 'required|alpha_numeric_space|min_length[1]',
-        'cnpj' => 'required||is_unique[clients.juridical.cnpj]'
+        'trade_name' => 'required|alpha_numeric_space|min_length[1]',
+        'cnpj' => 'required|is_unique[clientsjuridical.cnpj]'
     ];
     protected $validationMessages   = [
-        'name' => ['required' => 'O nome é necessário para criar um novo usuário'],
-        'cnpj' => ['is_unique' => 'Este CNPJ já se encontra cadastrado']];
+        'trade_name' => ['required' => 'O nome fantasia é necessário para criar um novo usuário'],
+        'cnpj' => [
+            'is_unique' => 'Este CNPJ já se encontra cadastrado',
+            'required' => 'O CNPJ é necessário para continuar']];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

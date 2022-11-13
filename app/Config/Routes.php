@@ -37,10 +37,18 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-//Client Rest
+//Clients Natural Crud
 $routes->get('/clientsnatural', 'ClientsNaturalController::clientsList');
+$routes->post('/clientsnatural/create', 'ClientsNaturalController::create');
+$routes->get('/clientsnatural/edit/(:num)', 'ClientsNaturalController::editClient/$1');
+$routes->put('/clientsnatural/update/(:num)', 'ClientsNaturalController::updateClient/$1');
+$routes->delete('/clientsnatural/delete/(:num)', 'ClientsNaturalController::delete/$1');
+
 $routes->get('/clientsjuridical', 'ClientsJuridicalController::clientsList');
-$routes->get('/orders', 'OrdersController::ordersList');
+$routes->post('/clientsjuridical/create', 'ClientsJuridicalController::create');
+$routes->get('/clientsjuridical/edit/(:num)', 'ClientsJuridicalController::editClient/$1');
+$routes->put('/clientsjuridical/update/(:num)', 'ClientsJuridicalController::updateClient/$1');
+$routes->delete('/clientsjuridical/delete/(:num)', 'ClientsJuridicalController::delete/$1');
 
 // Products Crud
 $routes->get('/products', 'ProductsController::productsList');
