@@ -40,6 +40,7 @@ $routes->set404Override();
 $routes->get('/products', 'ProductsController::productsList');
 $routes->post('/clientsnatural/create', 'ClientsNaturalController::create');
 $routes->post('/login', 'Auth::login');
+$routes->post('/new/', 'ClientsNaturalController::newOrder');
 
 //Clients Natural Crud
 $routes->group('api', function ($routes) {

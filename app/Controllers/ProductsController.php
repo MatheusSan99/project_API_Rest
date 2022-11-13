@@ -9,7 +9,6 @@ use App\Util\InsertNewDataInCrud;
 use App\Util\UpdateCrud;
 use CodeIgniter\Model;
 use CodeIgniter\RESTful\ResourceController;
-use Exception;
 
 class ProductsController extends ResourceController
 {
