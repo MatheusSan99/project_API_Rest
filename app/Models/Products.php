@@ -25,9 +25,14 @@ class Products extends Model
 
     // Validation
     protected $validationRules      = [
-        'name' => 'required|alpha_numeric_space|min_length[1]'];
+        'name' => 'required|alpha_numeric_space|min_length[1]',
+        'stock' => 'numeric',
+        'price' => 'numeric'];
     protected $validationMessages   = [
-        'name' => ['required' => 'O nome é necessário para criar um novo produto']];
+        'name' => ['required' => 'O nome é necessário para criar um novo produto'],
+        'stock'=> ['numeric'=>'O valor está incorreto, precisa ser um número inteiro'],
+        'price'=> ['numeric'=>'O valor está incorreto, precisa ser um número inteiro'],
+        ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

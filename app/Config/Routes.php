@@ -43,7 +43,9 @@ $routes->post('/clientsnatural/create', 'ClientsNaturalController::create');
 $routes->get('/clientsnatural/edit/(:num)', 'ClientsNaturalController::editClient/$1');
 $routes->put('/clientsnatural/update/(:num)', 'ClientsNaturalController::updateClient/$1');
 $routes->delete('/clientsnatural/delete/(:num)', 'ClientsNaturalController::delete/$1');
+$routes->get('/clientsnatural/buy', 'ClientsNaturalController::buyNewItem');
 
+//Clients Juridical Crud
 $routes->get('/clientsjuridical', 'ClientsJuridicalController::clientsList');
 $routes->post('/clientsjuridical/create', 'ClientsJuridicalController::create');
 $routes->get('/clientsjuridical/edit/(:num)', 'ClientsJuridicalController::editClient/$1');
@@ -52,7 +54,7 @@ $routes->delete('/clientsjuridical/delete/(:num)', 'ClientsJuridicalController::
 
 // Products Crud
 $routes->get('/products', 'ProductsController::productsList');
-$routes->post('/products/create', 'ProductsController::createNewProduct');
+$routes->post('/products/create', 'ProductsController::create');
 $routes->get('/products/edit/(:num)', 'ProductsController::editProduct/$1');
 $routes->put('/products/update/(:num)', 'ProductsController::updateProduct/$1');
 $routes->delete('/products/delete/(:num)','ProductsController::delete/$1');

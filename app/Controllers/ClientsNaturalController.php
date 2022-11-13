@@ -55,6 +55,11 @@ class ClientsNaturalController extends ResourceController
         return $this->deleteCrudById->delete($id);
     }
 
+    public function buyNewItem()
+    {
+        
+    }
+
     /**
      * @return Model
      */

@@ -14,7 +14,7 @@ class ClientsJuridical extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id','trade_name','cnpj','order_id'];
+    protected $allowedFields    = ['id','trade_name','cnpj','order_id','balance'];
 
     // Dates
     protected $useTimestamps = true;
