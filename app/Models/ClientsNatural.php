@@ -14,7 +14,7 @@ class ClientsNatural extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id','name','cpf','order_id','balance'];
+    protected $allowedFields    = ['id','name','cpf','order_id','balance','password'];
 
     // Dates
     protected $useTimestamps = true;

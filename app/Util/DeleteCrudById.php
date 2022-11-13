@@ -28,7 +28,7 @@ class DeleteCrudById extends ResourceController
                 return $this->clientType->failNotFound('Cliente com o ID : ' . $id . ' não encontrado');
 
             if ($this->clientType->getClient()->delete($id)) :
-                return $this->clientType->respondDeleted($clientVerified);
+                return $this->clientType->respondDeleted(['status'=>$this->clientType->getResponse()->getStatusCode(),'message' => 'Você apagou com sucesso, veja os dados que foram excluidos','data' => $clientVerified]);
             else :
                 return $this->clientType->failServerError('Erro ao Excluir Cliente');
             endif;

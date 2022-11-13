@@ -33,7 +33,7 @@ class ProductsController extends ResourceController
     {
         $clients = $this->product->findAll();
 
-        return $this->response->setJSON($clients);
+        return $this->response->setJSON(['status' => $this->response->getStatusCode(),'message' => 'Você está acessando a lista de produtos!', $clients]);
     }
     public function create()
     {

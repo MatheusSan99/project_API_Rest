@@ -32,7 +32,7 @@ class UpdateCrud extends ResourceController
 
             if ($this->crudType->getClient()->update($id, $client)) {
                 $client->id = $id;
-                return $this->crudType->respondUpdated($client);
+                return $this->crudType->respondUpdated(['status'=>$this->crudType->getResponse()->getStatusCode(),'message' => 'Você editou com sucesso, veja os dados atualizados abaixo','data' => $client]);
             }
         } catch (Exception $exception) {
             return $this->crudType->failServerError('Ocorreu um problema no servidor ' . $exception->getMessage());

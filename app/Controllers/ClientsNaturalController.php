@@ -22,6 +22,7 @@ class ClientsNaturalController extends ResourceController
     public function __construct()
     {
         $this->client = new ClientsNatural();
+        helper('secure_password_helper');
         $this->deleteCrudById = new DeleteCrudById($this);
         $this->updateCrud = new UpdateCrud($this);
         $this->editGetView = new EditGetView($this);
@@ -53,11 +54,6 @@ class ClientsNaturalController extends ResourceController
     public function delete($id = null)
     {
         return $this->deleteCrudById->delete($id);
-    }
-
-    public function buyNewItem()
-    {
-        
     }
 
     /**

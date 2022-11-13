@@ -14,6 +14,7 @@ class InsertNewDataInCrud extends ResourceController
     public function __construct(Controller $crudTypeController)
     {
         $this->crudTypeController = $crudTypeController;
+        helper('secure_password_helper');
     }
 
     public function create()
@@ -23,15 +24,36 @@ class InsertNewDataInCrud extends ResourceController
         $crud = $this->crudTypeController;
 
         if ($crud->request->getHeaderLine('token') == $this->token) {
-            $newClient['name'] = $this->crudTypeController->getRequest()->getPost('name');
-            $newClient['balance'] = $this->crudTypeController->getRequest()->getPost('balance');
-            $newClient['trade_name'] = $this->crudTypeController->getRequest()->getPost('trade_name');
-            $newClient['cpf'] = $this->crudTypeController->getRequest()->getPost('cpf');
-            $newClient['description'] = $this->crudTypeController->getRequest()->getPost('description');
-            $newClient['price'] = $this->crudTypeController->getRequest()->getPost('price');
-            $newClient['stock'] = $this->crudTypeController->getRequest()->getPost('stock');
-            $newClient['cnpj'] = $this->crudTypeController->getRequest()->getPost('cnpj');
-            $newClient['adress'] = $this->crudTypeController->getRequest()->getPost('adress');
+
+//validacao para saber se foi setado as informacoes pelo post, e se foi define como valor da variavel.
+
+            if ($this->crudTypeController->getRequest()->getPost('name') !== null) {
+                $newClient['name'] = $this->crudTypeController->getRequest()->getPost('name');
+            }
+
+            if ($this->crudTypeController->getRequest()->getPost('password') !== null) {
+                $newClient['password'] = $this->crudTypeController->getRequest()->getPost('password');
+            }
+
+            if (isset($newClient['password'])) {
+                $newClient['password'] = hashPassword($newClient['password']);
+            }
+
+            if ($this->crudTypeController->getRequest()->getPost('cpf') !== null) {
+                $newClient['cpf'] = $this->crudTypeController->getRequest()->getPost('cpf');
+            }
+            if ($this->crudTypeController->getRequest()->getPost('description') !== null) {
+                $newClient['description'] = $this->crudTypeController->getRequest()->getPost('description');
+            }
+            if ($this->crudTypeController->getRequest()->getPost('price') !== null) {
+                $newClient['price'] = $this->crudTypeController->getRequest()->getPost('price');
+            }
+            if ($this->crudTypeController->getRequest()->getPost('stock') !== null) {
+                $newClient['stock'] = $this->crudTypeController->getRequest()->getPost('stock');
+            }
+            if ($this->crudTypeController->getRequest()->getPost('adress') !== null) {
+                $newClient['adress'] = $this->crudTypeController->getRequest()->getPost('adress');
+            }
 
             try {
                 if ($this->crudTypeController->getClient()->insert($newClient)) {
@@ -46,7 +68,8 @@ class InsertNewDataInCrud extends ResourceController
                         'errors' => [$this->crudTypeController->getClient()->errors()]];
                 }
 
-                return $this->crudTypeController->getResponse()->setJSON($response);
+                return $this->crudTypeController->getResponse()->setJSON(['status' => $this->crudTypeController->getResponse()->getStatusCode(),'message' => 'Você cadastrou um dado novo', $response]);
+
 
             } catch (Exception $e) {
                 $response = ['response' => 'error', 'msg' => 'erro ao Cadastrar os dados, excessão encontrada',

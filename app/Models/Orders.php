@@ -39,4 +39,16 @@ class Orders extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function clientOrders($id = null)
+    {
+        $builder = $this->db->table($this->table);
+        $builder->select();
+        $builder->join('clientsnatural','clientsnatural.fk_order' == 'order.id');
+        $builder->where('clientsnatural.id',$id);
+        $query = $builder->get();
+
+        return $query->getResult();
+
+    }
 }
