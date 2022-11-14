@@ -9,14 +9,14 @@ use App\Util\DeleteCrudById;
 use App\Util\EditGetView;
 use App\Util\InsertNewDataInCrud;
 use App\Util\UpdateCrud;
-use CodeIgniter\Controller;
+use CodeIgniter\HTTP\Request;
 use CodeIgniter\Model;
 use CodeIgniter\RESTful\ResourceController;
+use ReflectionException;
 
 class ClientsNaturalController extends ResourceController
 {
     private Model $client;
-    private Controller $controller;
     private DeleteCrudById $deleteCrudById;
     private UpdateCrud $updateCrud;
     private EditGetView $editGetView;
@@ -25,7 +25,6 @@ class ClientsNaturalController extends ResourceController
 
     public function __construct()
     {
-        $this->controller = new Controller();
         $this->client = new ClientsNatural();
         helper('secure_password_helper');
         $this->deleteCrudById = new DeleteCrudById($this);
@@ -34,18 +33,23 @@ class ClientsNaturalController extends ResourceController
         $this->insertNewDataInCrud = new InsertNewDataInCrud($this);
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public function newOrder()
     {
         $client = $this->client;
         $product = new Products();
         $order = new Orders();
-        $newData['client_id'] = $this->controller->getRequest()->getPost    ('client_id');
-        $newData['product_id'] = $this->controller->getRequest()->getPost('product_id');
-        $product = $product->find($newData['product_id']);
-        $client = $client->find($newData['client_id']);
+        $product = $product->find($this->request->getPost('product_id'));
+        $client = $client->find($this->request->getPost('client_id'));
 
-
-        $order = $order->insert(['status' => 'Pedido Completo', 'product_id' => $newData['product_id'],'total' => $product['price'],'client_id' => $newData['client_id']]);
+        $order->insert([
+            'status' => 'Pedido Completo',
+            'product_id' => $product['id'],
+            'client_id' => $client['id'],
+            'total' => $product['price'],
+            ]);
     }
 
     public function clientsList()
