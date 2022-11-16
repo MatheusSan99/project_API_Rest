@@ -36,7 +36,9 @@ Utilizando os conceitos estudados até o momento foi construído de API com MYSQ
      <img src="https://i.postimg.cc/PJCNHq0h/Relacoes-Entre-As-Tabelas.png[Relacoes-Entre-As-Tabelas.png](https://postimg.cc/q6dpXpkZ)"  alt="example badge" style="vertical-align:top margin:6px 4px>
 </p>
 
-<br /><br />
+<br />
+<br />
+<br />
 ## 📚 Autor
 
 * [Matheus](https://www.linkedin.com/in/matheussan/)
