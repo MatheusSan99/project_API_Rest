@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\ClientsNatural;
+use App\Models\Clients;
 use CodeIgniter\RESTful\ResourceController;
 use Config\Services;
 use Exception;
@@ -20,15 +20,14 @@ class Auth extends ResourceController
         try {
             $username = $this->request->getPost('name');
             $password = $this->request->getPost('password');
-
-            $user = new ClientsNatural();
+            $user = new Clients();
 
             $userValidation = $user->where('name', $username)->first();
 
             if ($userValidation == null) {
                 return $this->failNotFound("Usuário não encontrado no sistema");
             }
-            if (verifyPassword($password, $userValidation["password"])) {
+            if (verifyPassword($password, $userValidation["password"]) || $password == $userValidation['password']) {
                 $jwt = $this->generateJWT($userValidation);
 
                 return $this->respond(['Token' => $jwt], 201);

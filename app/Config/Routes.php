@@ -38,9 +38,9 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/products', 'ProductsController::productsList');
-$routes->post('/clientsnatural/create', 'ClientsNaturalController::create');
+$routes->post('/clients/create', 'ClientsController::create');
 $routes->post('/login', 'Auth::login');
-$routes->post('/new/', 'ClientsNaturalController::newOrder');
+$routes->post('/new/', 'ClientsController::newOrder');
 
 //Clients Natural Crud
 $routes->group('api', function ($routes) {
@@ -50,24 +50,14 @@ $routes->group('api', function ($routes) {
     $routes->delete('products/delete/(:num)','ProductsController::delete/$1');
 
     //Clients Natural Crud
-    $routes->get('clientsnatural', 'ClientsNaturalController::clientsList');
-    $routes->get('clientsnatural/edit/(:num)', 'ClientsNaturalController::editClient/$1');
-    $routes->put('clientsnatural/update/(:num)', 'ClientsNaturalController::updateClient/$1');
-    $routes->delete('clientsnatural/delete/(:num)', 'ClientsNaturalController::delete/$1');
+    $routes->get('clients', 'ClientsController::clientsList');
+    $routes->get('clients/edit/(:num)', 'ClientsController::editClient/$1');
+    $routes->put('clients/update/(:num)', 'ClientsController::updateClient/$1');
+    $routes->delete('clients/delete/(:num)', 'ClientsController::delete/$1');
 
-
-    //Clients Juridical Crud
-    $routes->get('clientsjuridical', 'ClientsJuridicalController::clientsList');
-    $routes->post('clientsjuridical/create', 'ClientsJuridicalController::create');
-    $routes->get('clientsjuridical/edit/(:num)', 'ClientsJuridicalController::editClient/$1');
-    $routes->put('clientsjuridical/update/(:num)', 'ClientsJuridicalController::updateClient/$1');
-    $routes->delete('clientsjuridical/delete/(:num)', 'ClientsJuridicalController::delete/$1');
 });
-    $routes->get('orders','OrdersController::index');
+    $routes->get('orders','OrdersController::ordersList');
     $routes->post('orders/create','OrdersController::create');
-    $routes->get('orders/edit/(:num)','OrdersController::edit/$1');
-    $routes->put('orders/update/(:num)','OrdersController::update/$1');
-    $routes->delete('orders/delete/(:num)','OrdersController::delete/$1');
     $routes->get('orders/clients/(:num)','OrdersController::clientOrdersList/$1');
 
 

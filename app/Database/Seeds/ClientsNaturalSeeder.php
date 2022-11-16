@@ -3,7 +3,7 @@
 namespace App\Database\Seeds;
 
 use App\Models\Clients;
-use App\Models\ClientsNatural;
+use App\Models\Clients;
 use CodeIgniter\Database\Seeder;
 use CodeIgniter\I18n\Time;
 use Exception;
@@ -18,7 +18,7 @@ class ClientsNaturalSeeder extends Seeder
      */
     public function run()
     {
-        $client = new ClientsNatural();
+        $client = new Clients();
         $faker = Factory::create();
 
         for ($i = 0; $i < 5; $i++) {

@@ -2,35 +2,35 @@
 
 namespace App\Controllers;
 
-use App\Models\ClientsNatural;
+use App\Models\Clients;
 use App\Models\Orders;
 use App\Models\Products;
 use App\Util\DeleteCrudById;
 use App\Util\EditGetView;
 use App\Util\InsertNewDataInCrud;
+use App\Util\InsertNewClient;
 use App\Util\UpdateCrud;
-use CodeIgniter\HTTP\Request;
 use CodeIgniter\Model;
 use CodeIgniter\RESTful\ResourceController;
 use ReflectionException;
 
-class ClientsNaturalController extends ResourceController
+class ClientsController extends ResourceController
 {
-    private Model $client;
+    private Clients $client;
     private DeleteCrudById $deleteCrudById;
     private UpdateCrud $updateCrud;
     private EditGetView $editGetView;
-    private InsertNewDataInCrud $insertNewDataInCrud;
+    private InsertNewClient $insertNewClient;
 
 
     public function __construct()
     {
-        $this->client = new ClientsNatural();
+        $this->client = new Clients();
         helper('secure_password_helper');
         $this->deleteCrudById = new DeleteCrudById($this);
         $this->updateCrud = new UpdateCrud($this);
         $this->editGetView = new EditGetView($this);
-        $this->insertNewDataInCrud = new InsertNewDataInCrud($this);
+        $this->insertNewClient = new InsertNewClient($this);
     }
 
     /**
@@ -61,7 +61,7 @@ class ClientsNaturalController extends ResourceController
 
     public function create()
     {
-        return $this->insertNewDataInCrud->create();
+        $this->insertNewClient->insertNewClientFunction();
     }
 
     public function editClient($id = null)

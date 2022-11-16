@@ -62,8 +62,6 @@ class ProductsController extends ResourceController
         return $this->product;
     }
 
-    /**
-     * @return string
-     */
+
 }
 
