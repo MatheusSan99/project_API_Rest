@@ -24,7 +24,13 @@ Utilizando os conceitos estudados até o momento foi construído de API com MYSQ
 
 - Para fazer o projeto funcionar, clonar o repositório, dar um composer install, composer update e rodar as migrations, caso algo não de certo, entre em contato
 
+- Relações Entre as Tabelas
 
+<p align="center">
+     <img src="https://i.postimg.cc/PJCNHq0h/Relacoes-Entre-As-Tabelas.png[Relacoes-Entre-As-Tabelas.png](https://postimg.cc/q6dpXpkZ)"  alt="example badge" style="vertical-align:top margin:6px 4px>
+</p>
+
+<br /><br />
 ## 📚 Autor
 
 * [Matheus](https://www.linkedin.com/in/matheussan/)
