@@ -41,10 +41,10 @@ $routes->get('/products', 'ProductsController::productsList');
 $routes->post('/clients/create', 'ClientsController::create');
 $routes->post('/login', 'Auth::login');
 $routes->post('/new/', 'ClientsController::newOrder');
+$routes->post('products/create', 'ProductsController::create');
 
 //Clients Natural Crud
 $routes->group('api', function ($routes) {
-    $routes->post('products/create', 'ProductsController::create');
     $routes->get('products/edit/(:num)', 'ProductsController::editProduct/$1');
     $routes->put('products/update/(:num)', 'ProductsController::updateProduct/$1');
     $routes->delete('products/delete/(:num)','ProductsController::delete/$1');

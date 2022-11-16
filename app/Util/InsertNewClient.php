@@ -40,23 +40,6 @@ class InsertNewClient extends ResourceController
             if ($crud->getRequest()->getPost('cpf') !== null) {
                 $newClient['cpf'] = $this->crudTypeController->getRequest()->getPost('cpf');
             }
-            $nameCheck = $crud->getRequest()->getPost('name');
-            $cpfCheck = $crud->getRequest()->getPost('cpf');
-
-                if ($newClient['client_type_id'] == 1) {
-                    if ($nameCheck == null || $cpfCheck == null) {
-
-                        return $crud->getResponse()->setJSON(['status' => $crud->getResponse()->getStatusCode(),'message' => 'Os clientes Tipo 1 precisam ter Nome e CPF']);
-                    }
-                }
-
-            if ($newClient['client_type_id'] == 2) {
-                if ($nameCheck == null || $cpfCheck == null) {
-
-                    return $crud->getResponse()->setJSON(['status' => $crud->getResponse()->getStatusCode(),'message' => 'Os clientes Tipo 2 precisam ter Nome Fantasia e CNPJ']);
-                }
-            }
-
 
             if ($crud->getRequest()->getPost('trade_name') !== null) {
                 $newClient['trade_name'] = $crud->getRequest()->getPost('trade_name');
