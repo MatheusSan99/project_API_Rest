@@ -17,6 +17,12 @@ Trata-se de um projeto onde é criada uma API com os Seguintes Endpoints.
 ## 🔧 Como foi desenvolvido? 
 Utilizando os conceitos estudados até o momento foi construído de API com MYSQL, php E CodeIgniter4, Crud está completo e conta com diversas validações, também conta com a validação com o token JWT para mais segurança no projeto.
 
+
+## 📚 Como Funciona ?
+
+- Para fazer o projeto funcionar, clonar o repositório, dar um composer install, composer update e rodar as migrations, caso algo não de certo, entre em contato
+
+
 ## 📚 Autor
 
 * [Matheus](https://www.linkedin.com/in/matheussan/)
