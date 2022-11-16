@@ -29,7 +29,7 @@ class EditGetView extends ResourceController
                 return $this->crudType->failNotFound('Cliente com o ID: ' . $id . ' Não Encontrado');
             }
 
-            return $this->crudType->getResponse()->setJSON(['status' => $this->crudType->getResponse()->getStatusCode(),'message' => 'Você está visualizando um produto, para edita-lo, mude o link de edit para update!',$product]);
+            return $this->crudType->getResponse()->setJSON(['status' => $this->crudType->getResponse()->getStatusCode(),'message' => 'Você está visualizando um Crud, para edita-lo, mude o link de edit para update e o metodo para PUT!',$product]);
 
         } catch (Exception $exception) {
             return $this->crudType->failServerError('Erro no Servidor' . $exception->getMessage());
