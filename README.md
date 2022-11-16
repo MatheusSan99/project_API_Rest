@@ -1,4 +1,6 @@
 
+[![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=Welcome+To+My+GitHub;Project+API_REST+Author+Matheus;Please+Feel+Free+To+Contact+Me)](https://git.io/typing-svg)
+
 ### Este é o repositório para desenvolvimento do projeto API_REST
 
 ## Projeto: API_REST com CodeIgniter!
