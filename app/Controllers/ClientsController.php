@@ -22,7 +22,6 @@ class ClientsController extends ResourceController
     private EditGetView $editGetView;
     private InsertNewClient $insertNewClient;
 
-
     public function __construct()
     {
         $this->client = new Clients();
@@ -31,25 +30,6 @@ class ClientsController extends ResourceController
         $this->updateCrud = new UpdateCrud($this);
         $this->editGetView = new EditGetView($this);
         $this->insertNewClient = new InsertNewClient($this);
-    }
-
-    /**
-     * @throws ReflectionException
-     */
-    public function newOrder()
-    {
-        $client = $this->client;
-        $product = new Products();
-        $order = new Orders();
-        $product = $product->find($this->request->getPost('product_id'));
-        $client = $client->find($this->request->getPost('client_id'));
-
-        $order->insert([
-            'status' => 'Pedido Completo',
-            'product_id' => $product['id'],
-            'client_id' => $client['id'],
-            'total' => $product['price'],
-            ]);
     }
 
     public function clientsList()

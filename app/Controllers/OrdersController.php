@@ -2,8 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Database\Migrations\OrderStatus;
 use App\Models\Clients;
 use App\Models\Orders;
+use CodeIgniter\Controller;
 use CodeIgniter\Model;
 use CodeIgniter\RESTful\ResourceController;
 use Exception;
@@ -21,6 +23,7 @@ class OrdersController extends ResourceController
 
     public function ordersList()
     {
+        $status = new OrderStatus();
         $orders = $this->orders->findAll();
 
         return $this->response->setJSON($orders);
@@ -63,6 +66,6 @@ class OrdersController extends ResourceController
      */
     public function getClient(): object
     {
-        return $this->model;
+        return $this->orders;
     }
 }

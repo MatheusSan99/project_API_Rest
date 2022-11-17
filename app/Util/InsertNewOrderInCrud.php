@@ -30,13 +30,14 @@ class insertNewOrderInCrud extends ResourceController
 
     public function insertNewOrderFunction()
     {
-        $productCheck = $this->products->find($this->crudTypeController->getRequest()->getPost('product_id'));
-        $clientCheck =  $this->clients->find($this->crudTypeController->getRequest()->getPost('client_id'));
+        $crud = $this->crudTypeController;
 
+        $productCheck = $this->products->find($crud->getRequest()->getPost('product_id'));
+        $clientCheck =  $this->clients->find($crud->getRequest()->getPost('client_id'));
 
         try {
             if (!$productCheck || !$clientCheck) {
-                return $this->crudTypeController->getResponse()->setJSON(['status' => $this->crudTypeController->getResponse()->getStatusCode(),'message' => 'Um Dado que não existe foi informado, revise os campos por favor']);
+                return $crud->getResponse()->setJSON(['status' => $this->crudTypeController->getResponse()->getStatusCode(),'message' => 'Um dos campos não existe (product_id ou client_id), revise os campos por favor']);
 
             }
         } catch (Exception $exception) {
@@ -44,19 +45,16 @@ class insertNewOrderInCrud extends ResourceController
                 'errors' => $exception->getMessage()];
         }
 
-        $crud = $this->crudTypeController;
-        if ($crud->request->getHeaderLine('token') == $this->token) {
-
-            if ($this->crudTypeController->getRequest()->getPost('product_id') !== null) {
-                $newOrder['product_id'] = $this->crudTypeController->getRequest()->getPost('product_id');
+            if ($crud->getRequest()->getPost('product_id') !== null) {
+                $newOrder['product_id'] = $crud->getRequest()->getPost('product_id');
             }
-            if ($this->crudTypeController->getRequest()->getPost('client_id') !== null) {
-                $newOrder['client_id'] = $this->crudTypeController->getRequest()->getPost('client_id');
+            if ($crud->getRequest()->getPost('client_id') !== null) {
+                $newOrder['client_id'] = $crud->getRequest()->getPost('client_id');
             }
             $newOrder['status'] = 1;
 
-            echo $this->insertNewDataTryCatch->tryCatchValidation($newOrder)->getJSON();
-        }
-        return false;
+           echo $this->insertNewDataTryCatch->tryCatchValidation($newOrder)->getJSON();
+
+             return false;
     }
 }

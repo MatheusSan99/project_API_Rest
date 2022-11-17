@@ -55,10 +55,13 @@ $routes->group('api', function ($routes) {
     $routes->put('clients/update/(:num)', 'ClientsController::updateClient/$1');
     $routes->delete('clients/delete/(:num)', 'ClientsController::delete/$1');
 
-});
+    //Orders Crud
     $routes->get('orders','OrdersController::ordersList');
     $routes->post('orders/create','OrdersController::create');
     $routes->get('orders/clients/(:num)','OrdersController::clientOrdersList/$1');
+
+});
+
 
 
 
