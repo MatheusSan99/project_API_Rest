@@ -29,7 +29,9 @@ Utilizando os conceitos estudados até o momento foi construído de API com MYSQ
 - 1° Passo, acessar http://localhost:8080/clients/create no POSTMAN metodo POST e criar um novo usuário obrigatoriamente com nome, senha e client_type id = 1 (apenas o primeiro, quando o banco de dados não tem usuários para login)
 - 2° Passo acessar a rota de login e entrar com seus dados criados (nome e senha).
 - 3° Sinta-se a vontade para testar todas as rotas e funcionalidades da API.
-- 4° caso ocorra um erro de metodo não encontrado (getRequest) entre em contato, é apenas uma configuração do controller que não vem por padrão.
+- 4° caso ocorra um erro de metodo não encontrado (getRequest) entre em contato, é apenas uma configuração do controller que não vem por padrão
+
+<br/>
 
 - Relações Entre as Tabelas
 
@@ -37,8 +39,7 @@ Utilizando os conceitos estudados até o momento foi construído de API com MYSQ
      <img src="https://i.postimg.cc/PJCNHq0h/Relacoes-Entre-As-Tabelas.png[Relacoes-Entre-As-Tabelas.png](https://postimg.cc/q6dpXpkZ)"  alt="example badge" style="vertical-align:top margin:6px 4px>
 </p>
 
-<br />
+<br/><br/><br/><br/><br/><br/><br/>
 
-## 📚 Autor
+## 📚 Autor do Projeto [Matheus](https://www.linkedin.com/in/matheussan/)
 
-[Matheus](https://www.linkedin.com/in/matheussan/)
