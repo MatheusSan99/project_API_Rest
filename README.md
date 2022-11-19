@@ -29,7 +29,7 @@ Utilizando os conceitos estudados até o momento foi construído de API com MYSQ
 - 1° Passo, acessar http://localhost:8080/clients/create no POSTMAN metodo POST e criar um novo usuário obrigatoriamente com nome, senha e client_type id = 1 (apenas o primeiro, quando o banco de dados não tem usuários para login)
 - 2° Passo acessar a rota de login e entrar com seus dados criados (nome e senha).
 - 3° Sinta-se a vontade para testar todas as rotas e funcionalidades da API.
-- 4° caso ocorra um erro de metodo não encontrado (getRequest) entre em contato, é apenas uma configuração do controller que não vem por padrão
+- 4° caso ocorra um erro de metodo não encontrado (getRequest) entre em contato, é apenas uma configuração do controller que não vem por padrão, mas caso queira testar imediatamente, basta copiar o conteudo do arquivo BackupController em app/Controllers para o Controller que fica em vendor/codeigniter4/framework/system/Controller.php.
 - 5 ° Para criar novos dados, alem do JWT é necessário informar o token que no caso é simplesmente a letra a, para fazer isso basta ir no headers (no postman) e inserir key: token e value: a.
 <br/>
 
