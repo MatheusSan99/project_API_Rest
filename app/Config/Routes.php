@@ -40,11 +40,10 @@ $routes->set404Override();
 $routes->get('/products', 'ProductsController::productsList');
 $routes->post('/clients/create', 'ClientsController::create');
 $routes->post('/login', 'Auth::login');
-$routes->post('/new/', 'ClientsController::newOrder');
-$routes->post('products/create', 'ProductsController::create');
 
 //Clients Natural Crud
 $routes->group('api', function ($routes) {
+    $routes->post('products/create', 'ProductsController::create');
     $routes->get('products/edit/(:num)', 'ProductsController::editProduct/$1');
     $routes->put('products/update/(:num)', 'ProductsController::updateProduct/$1');
     $routes->delete('products/delete/(:num)','ProductsController::delete/$1');
@@ -59,6 +58,7 @@ $routes->group('api', function ($routes) {
     $routes->get('orders','OrdersController::ordersList');
     $routes->post('orders/create','OrdersController::create');
     $routes->get('orders/clients/(:num)','OrdersController::clientOrdersList/$1');
+    $routes->post('/new/', 'ClientsController::newOrder');
 
 });
 
