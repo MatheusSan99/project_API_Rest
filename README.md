@@ -24,7 +24,7 @@ Utilizando os conceitos estudados até o momento foi construído de API com MYSQ
 
 - Antes de tudo, é necessário criar o arquivo .env que vem de padrão para o codeigniter funcionar.
 
-- Para fazer o projeto funcionar, clonar o repositório, dar um composer install, composer update, CONFIGURAR O SEU PROPRIO MYSQL (Como fazer isso? muito simples, basta ir no app/Config/Database.php e na linha 38 mudar o nome do database para um que você queira usar, recomendo criar um database vazio só para teste, e não se esqueça de ligar o servidor MYSQL, após isso, rodar as migrations (php spark migrate), é necessário ter o POSTMAN instalado para testar as funcionalidades.
+- Para fazer o projeto funcionar, clonar o repositório, dar um composer install, composer update, CONFIGURAR O SEU PROPRIO MYSQL no .ENV, recomendo criar um database vazio só para teste, e não se esqueça de ligar o servidor MYSQL, após isso, rodar as migrations (php spark migrate), é necessário ter o POSTMAN instalado para testar as funcionalidades.
 
 - 1° Passo, acessar http://localhost:8080/clients/create no POSTMAN metodo POST e criar um novo usuário obrigatoriamente com nome, senha e client_type id = 1 (apenas o primeiro, quando o banco de dados não tem usuários para login)
 - 2° Passo acessar a rota de login e entrar com seus dados criados (nome e senha).
