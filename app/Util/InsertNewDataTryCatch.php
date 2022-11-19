@@ -22,7 +22,7 @@ class InsertNewDataTryCatch extends  ResourceController
     public function tryCatchValidation($newClient)
     {
         try {
-            if (dd($this->crudTypeController->getClient())->insert($newClient)) {
+            if ($this->crudTypeController->getClient()->insert($newClient)) {
                 $response = [
                     'response' => 'Sucesso', 'msg' => 'Você Cadastrou o dado Corretamente'
                 ];
