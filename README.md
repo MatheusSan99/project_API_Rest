@@ -37,6 +37,17 @@ Utilizando os conceitos estudados até o momento foi construído de API com MYSQ
 - 5 ° Para criar novos dados, alem do JWT é necessário informar o token que no caso é simplesmente a letra a, para fazer isso basta ir no headers (no postman) e inserir key: token e value: a.
 <br/>
 
+## EndPoints Importantes
+Metodo Post, Rota: http://localhost:8080/clients/create  para criar um novo usuário
+Metodo Post, Rota: http://localhost:8080/login para fazer login
+Metodo Get, Rota: http://localhost:8080/products para visualizar a lista de produtos
+Metodo Put, Rota: http://localhost:8080/api/products/update/{id do produto para editar} para editar o produto selecionado
+Metodo Post, Rota: http://localhost:8080/api/products/create  para criar um novo produto
+Metodo Post, Rota: http://localhost:8080/api/orders/create para criar uma nova nota fiscal
+Metodo Get, Rota: http://localhost:8080/orders/clients/{id do cliente) para visualizar a lista de produtos
+
+Para saber mais, visite o vídeo que fiz sobre o projeto no Linkedin: https://www.linkedin.com/feed/update/urn:li:activity:6998768461606727680/
+
 - Relações Entre as Tabelas
 
 <p align="center">
