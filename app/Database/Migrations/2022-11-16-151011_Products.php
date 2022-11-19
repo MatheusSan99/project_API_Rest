@@ -37,6 +37,12 @@ class Products extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '200'
             ],
+            'created_at' => [
+                'type' => 'VARCHAR', 'constraint' => '200'
+            ],
+            'updated_at' => [
+                'type' => 'VARCHAR', 'constraint' => '200'
+            ],
         ]);
         $this->forge->addPrimaryKey('id');
 

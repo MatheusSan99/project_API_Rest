@@ -32,7 +32,6 @@ class InsertNewClient extends ResourceController
             if ($crud->getRequest()->getPost('client_type_id') !== null) {
                 $newClient['client_type_id'] = $this->crudTypeController->getRequest()->getPost('client_type_id');
             }
-
             if ($crud->getRequest()->getPost('name') !== null) {
                 $newClient['name'] = $this->crudTypeController->getRequest()->getPost('name');
             }
@@ -60,6 +59,5 @@ class InsertNewClient extends ResourceController
             }
             echo $this->insertNewDataTryCatch->tryCatchValidation($newClient)->getJSON();
         }
-            return false;
     }
 }

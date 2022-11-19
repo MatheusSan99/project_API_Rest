@@ -51,6 +51,12 @@ class Clients extends Migration
             'client_type_id' => [
                 'type' => 'INT'
             ],
+            'created_at' => [
+                'type' => 'VARCHAR', 'constraint' => '200'
+            ],
+            'updated_at' => [
+                'type' => 'VARCHAR', 'constraint' => '200'
+            ],
 
         ]);
         $this->forge->addPrimaryKey('id');

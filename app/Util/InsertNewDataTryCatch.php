@@ -22,7 +22,7 @@ class InsertNewDataTryCatch extends  ResourceController
     public function tryCatchValidation($newClient)
     {
         try {
-            if ($this->crudTypeController->getClient()->insert($newClient)) {
+            if (dd($this->crudTypeController->getClient())->insert($newClient)) {
                 $response = [
                     'response' => 'Sucesso', 'msg' => 'Você Cadastrou o dado Corretamente'
                 ];
@@ -43,7 +43,7 @@ class InsertNewDataTryCatch extends  ResourceController
         }
 
          //caso o token seja invalido
-        $response = ['response' => 'Erro de Token', 'msg' => 'Token Incorreto'];
+//        $response = ['response' => 'Erro de Token', 'msg' => 'Token Incorreto'];
 
         return $this->crudTypeController->getResponse()->setJSON($response);
     }
